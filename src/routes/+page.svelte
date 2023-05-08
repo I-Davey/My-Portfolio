@@ -6,11 +6,10 @@
 
     <section class="container">
         <div class="container_links">
-            <button class="links disabled">Home</button>
-            <button class="links disabled">About</button>
-            <button class="links" on:click={() => {goto("creations")}}>Creations</button>
-            <button class="links disabled">Contacts</button>
-            <button class="links disabled">Links</button>
+            <button class="links disabled">About Me</button>
+            <button class="links " on:click={() => {goto("creations")}}>My Creations</button>
+            <button class="links disabled">Contact Me</button>
+            <button class="links disabled">My Links</button>
         </div>
     </section>
 <style>
@@ -56,10 +55,17 @@
   cursor: not-allowed;
 }
 
+.links:not(.disabled) {
+    /*change this to 20 when all links are enabled*/
+    padding: 25px;
+
+}
+
 .links:not(.disabled):hover {
     
     background-color: #e6e6e6;
     color:#222831;
     transition-duration: 0.5s;
+    transform: scale(1.05, 1.1);
 }
 </style>

@@ -7,8 +7,9 @@
   </script>
 
 
-
-<TopBar/>
+{#key $page}
+  <TopBar/>
+{/key}
 
 <div class="container">
   {#key $page}

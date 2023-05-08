@@ -1,48 +1,114 @@
 <script >
-    import ID_logo_dark from "$lib/assets/ID_logo_grey.png"
-    
-    import { page } from '$app/stores';  
+import ID_logo_dark from "$lib/assets/ID_logo_grey.png";
+import ID_logo_white from "$lib/assets/ID_logo_white.png";
+import { ArrowLeft } from "radix-icons-svelte";
+import { page } from "$app/stores";
 
-    const paths = ['About', 'Creations', 'Contacts', 'Links']
+const paths = ["About", "Creations", "Contact", "Links"];
 
-    /** @type {string} */
-    let folderName;
+/** @type {string} */
+let folderName;
 
-    
-    function findCurrentPathOption() {
-      // Check if root path
-      // @ts-ignore
-      const pathParts = $page.route.id.split('/');
+/** @type {boolean} */
+let isSubpage = false;
+
+/** @type {string} */
+let subpageName = "";
+
+/** @type {boolean} */
+let hoverLogo = false;
+
+/**
+ * Updates the current path information.
+ */
+function updateCurrentPathInfo() {
+    const pathParts = $page.route.id;
+    const split_path = pathParts.split("/");
+    folderName = split_path[1];
+    isSubpage = split_path.length > 2;
+
+    if (isSubpage) {
       console.log(pathParts)
-      
-      // Return 'Home' if it's the root path, otherwise return the first element
-      folderName = pathParts[1];
-      folderName = folderName === '' ? 'Home' : folderName;
-      console.log(folderName)
+      subpageName = split_path[split_path.length - 2];
     }
+    
 
-      /**
-     * @param {string} pageName
-     */
-      function setPage(pageName) {
-        folderName = pageName;
-      }
+  folderName = folderName === "" ? "Home" : folderName;
+}
 
-    $ : findCurrentPathOption();
+/**
+ * Sets the current page name.
+ * @param {string} pageName
+ */
+function setPage(pageName) {
+  folderName = pageName;
+}
 
+// Reactively update path information whenever $page changes
+$: {
+  updateCurrentPathInfo();
+}
 
+/**
+ * Sets the hoverLogo to true.
+ */
+function focusLogo() {
+  hoverLogo = true;
+}
+
+/**
+ * Sets the hoverLogo to false.
+ */
+function unfocusLogo() {
+  hoverLogo = false;
+}
 
 </script>
 
+<div>
+  <div class="top-bar-container">
+    <header class="top-bar-navbar-interactive">
+      <div class="logo-arrow-container">
+        
+        <a href="/{subpageName.toLowerCase()}" class="logo-arrow-container" on:click={() => {setPage(subpageName.toLowerCase())}} style="opacity: {isSubpage ? 1 : 0}; pointer-events: {isSubpage ? 'auto' : 'none'};"><ArrowLeft color="white" size={40}/></a>
+        <div class="logo-container" on:mouseenter="{focusLogo}" on:mouseleave="{unfocusLogo}">
+          <!-- TODO: replace with SVG at some point-->
+          <img alt="logo" src="{ID_logo_dark }" class="top-bar-logo" style="opacity: {hoverLogo ? 0 : 1}" />
+          <img alt="logo" src="{ID_logo_white}" class="top-bar-logo" style="opacity: {hoverLogo ? 1 : 0}" />
+          <span class="logo-spacer"></span>
+        </div>  
+    </div>
+      <div class="top-bar-desktop-menu">
+        <nav class="top-bar-nav">
+          <a href="/" class="{folderName == 'Home' ? 'top-bar-navlink-selected': 'top-bar-navlink'}" on:click={() => {setPage('Home')}}>Home</a>
+          {#each paths as path}
+            <a href="/{path.toLowerCase()}" class="{path.toLowerCase() == folderName ? 'top-bar-navlink-selected': 'top-bar-navlink'}"  on:click={() => {setPage(path.toLowerCase())}}>{path}</a> 
+          {/each}
+        </nav>
+      </div>
+      <div class="top-bar-burger-menu">
+        <svg viewBox="0 0 1024 1024" class="top-bar-icon">
+          <path
+            d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+          ></path>
+        </svg>
+      </div>
+    </header>
+  </div>
+</div>
+
+
 <style>
   .top-bar-container {
-width: 100%;
-height: 100%;
-display: flex;
-position: relative;
-align-items: flex-start;
-flex-direction: column;
-background-color: #D9D9D9;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #D9D9D9;
+  flex-wrap: nowrap;
 }
 .top-bar-navbar-interactive {
 color: var(--dl-color-gray-black);
@@ -50,7 +116,7 @@ width: 100%;
 display: flex;
 align-items: center;
 padding-top: 0px;
-padding-left: var(--dl-space-space-threeunits);
+padding-left: var(--dl-space-space-unit);
 padding-right: var(--dl-space-space-threeunits);
 padding-bottom: 0px;
 justify-content: space-between;
@@ -96,6 +162,7 @@ justify-content: center;
 .top-bar-icon {
 width: var(--dl-size-size-xsmall);
 height: var(--dl-size-size-xsmall);
+/*make the flex smallest possible*/
 }
 
 
@@ -131,29 +198,31 @@ height: var(--dl-size-size-xsmall);
 }
 
 }
+.logo-container {
+    align-self: flex-start;
+    position: relative;
+  }
 
+  .top-bar-logo {
+    position: absolute;
+    height: 4.5rem;
+    transition: opacity 0.3s;
+  }
+  
+  .logo-container {
+    position: relative;
+
+    display: inline-block;
+
+    cursor: not-allowed;
+  }
+  .logo-spacer {
+    height: 4.5rem;
+    display: inline-block;
+  }
+  .logo-arrow-container {
+  display: flex;
+  align-items: center;
+
+}
 </style>
-
-<div>
-  <div class="top-bar-container">
-    <header data-thq="thq-navbar" class="top-bar-navbar-interactive">
-      <img alt="logo" src="{ID_logo_dark}" class="top-bar-logo"/>
-      <div class="top-bar-desktop-menu">
-        <nav data-thq="thq-navbar-nav-links"  data-role="Nav" class="top-bar-nav">
-          <a href="/" class="{folderName == 'Home' ? 'top-bar-navlink-selected': 'top-bar-navlink'}" on:click={() => {setPage('Home')}}>Home</a>
-          {#each paths as path}
-            <a href="{path.toLowerCase()}" class="{path.toLowerCase() == folderName ? 'top-bar-navlink-selected': 'top-bar-navlink'}"  on:click={() => {setPage(path.toLowerCase())}}>{path}</a> 
-          {/each}
-        </nav>
-      </div>
-      <div data-thq="thq-burger-menu" class="top-bar-burger-menu">
-        <svg viewBox="0 0 1024 1024" class="top-bar-icon">
-          <path
-            d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
-          ></path>
-        </svg>
-      </div>
-    </header>
-  </div>
-</div>
-
