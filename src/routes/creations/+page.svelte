@@ -1,3 +1,8 @@
+<script>
+    import { setTitle } from "lib/scripts/store";
+    setTitle("Creations")
+</script>
+
 
 <div class="area">
     <h1 class="title">CREATIONS</h1>
