@@ -2,9 +2,6 @@
     import Transitions from "$lib/components/Transitions.svelte";
 
     import { goto } from "$app/navigation";
-    import { setTitle } from "lib/scripts/store";
-    setTitle("Ian Daveys' Portfolio")
-    
 </script>
 
     <section class="container">
