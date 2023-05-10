@@ -55,9 +55,12 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
 
 <div class="about-container">
   <div class="header">
-    <h1 class="center">Hi, I'm Ian Davey</h1>
+    <div class="textbox">
+    <h1 class="center">Hi, I'm Ian Davey</h1>   
     <p class="center">I'm a passionate Python developer with three years of experience, eager to learn, grow, and add value to companies in the tech industry</p>
-  </div>
+    </div>
+</div>
+
   <div class="content">
 
 
@@ -68,7 +71,9 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
         </div>
       </div>
       <div class="right">
-        <p>Ever since I started my journey in software development, Python has been my go-to programming language. Throughout my career, I have had the opportunity to work on diverse projects, which enabled me to sharpen my skills in Python application development, API integration, process automation, and web scraping. My aptitude for rapid learning and adaptability has empowered me to confront challenges directly and make valuable contributions to my teams.</p>
+        <div class="textbox">
+            <p>Ever since I started my journey in software development, Python has been my go-to programming language. Throughout my career, I have had the opportunity to work on diverse projects, which enabled me to sharpen my skills in Python application development, API integration, process automation, and web scraping. My aptitude for rapid learning and adaptability has empowered me to confront challenges directly and make valuable contributions to my teams.</p>
+        </div>
       </div>
     </div>
     
@@ -76,26 +81,29 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
 
     {#if ismobile}
     <div class="row">
-      <div class="left">
-        <div class = "image_container">
-            <ImageCard title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#" description="A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time."></ImageCard>
+        <div class="left">
+            <div class = "image_container">
+                <ImageCard title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#" description="A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time."></ImageCard>
+            </div>
         </div>
-      </div>
-    <div class="right">
-        <p>I'm always learning and keeping up-to-date with the latest technologies and trends in the industry. I believe that staying informed and curious is key to being a successful developer, and I'm always looking for new ideas and inspiration to bring to my work. I am also heavily invested in utilizing tools like ChatGPT and GitHub Copilot to enhance my development process, streamline my workflow, and ensure that I deliver high-quality solutions for my projects.</p>
-      </div>
+        <div class="right">
+            <div class="textbox">
+                <p>I'm always learning and keeping up-to-date with the latest technologies and trends in the industry. I believe that staying informed and curious is key to being a successful developer, and I'm always looking for new ideas and inspiration to bring to my work. I am also heavily invested in utilizing tools like ChatGPT and GitHub Copilot to enhance my development process, streamline my workflow, and ensure that I deliver high-quality solutions for my projects.</p>
+            </div>
+        </div>
     </div>
     {:else}
-        <div class="row">
-
-    <div class="left">
-    <p>I'm always learning and keeping up-to-date with the latest technologies and trends in the industry. I believe that staying informed and curious is key to being a successful developer, and I'm always looking for new ideas and inspiration to bring to my work. I am also heavily invested in utilizing tools like ChatGPT and GitHub Copilot to enhance my development process, streamline my workflow, and ensure that I deliver high-quality solutions for my projects.</p>
-      </div>
-    <div class="right">
-        <div class = "image_container">
-            <ImageCard title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#" description="A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time."></ImageCard>
+    <div class="row">
+        <div class="left">
+            <div class="textbox">
+                <p>I'm always learning and keeping up-to-date with the latest technologies and trends in the industry. I believe that staying informed and curious is key to being a successful developer, and I'm always looking for new ideas and inspiration to bring to my work. I am also heavily invested in utilizing tools like ChatGPT and GitHub Copilot to enhance my development process, streamline my workflow, and ensure that I deliver high-quality solutions for my projects.</p>
+            </div>    
         </div>
-      </div>
+        <div class="right">
+            <div class = "image_container">
+                <ImageCard title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#" description="A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time."></ImageCard>
+            </div>
+        </div>
     </div>
     {/if}
 
@@ -108,7 +116,9 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
         </div>
       </div>
       <div class="right">
-        <p>If you're looking for a skilled and passionate Python Developer to join your team, I'd love to hear from you. Please feel free to <a href='mailto:your-email@example.com'>contact me</a> to discuss how I can help your business grow.</p>
+        <div class="textbox">
+            <p>If you're looking for a skilled and passionate Python Developer to join your team, I'd love to hear from you. Please feel free to <a href='mailto:your-email@example.com'>contact me</a> to discuss how I can help your business grow.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -167,19 +177,40 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
         max-width: 80rem;
     }
 
+.textbox {
+    padding: 1rem;
+    background-color: #252525;
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
 
 @media (max-width: 768px) {
+
+    .textbox {
+        margin-bottom: 2rem;
+        margin-top: 0rem;
+        border-top-left-radius: 0rem;
+        border-top-right-radius: 0rem;
+         background: linear-gradient(to bottom, rgba(37, 37, 37, 1), rgba(0,0,0, 1));
+    }
+  .about-container{
+    padding: 0%;
+    width: 100%;
+  }
+
   .row {
     flex-direction: column;
     text-align: center;
     justify-items: center;
-    
+    padding-left: 2%;
+    width: 98%;
+
   }
 
   .left,
   .right {
-    width: 80%;
-    
+    width: 100%;
     text-align: center; /* add this line */
     justify-self: center;
   }

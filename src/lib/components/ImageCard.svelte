@@ -53,6 +53,8 @@
   border-radius: calc(40 * 1px);
   overflow: hidden;
   text-decoration: none;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+
 }
 
 .card__image {      
@@ -107,6 +109,16 @@
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .card{
+    border-radius: 1%;
+    box-shadow: none;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+  }
+}
+
+
 /* Primary input mechanism can hover */
 @media (hover: hover) {
   .card:hover .card__overlay {
@@ -118,8 +130,5 @@
   }
 }
 
-/* Primary input mechanism cannot hover or hover not easily */
-@media (hover: none) {
 
-}
 </style>
