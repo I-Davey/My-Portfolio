@@ -102,7 +102,7 @@ function unfocusLogo() {
     </header>
   </div>
 </div>
-
+<div class="toolbar-spacer"></div>
 
 <style>
 .top-bar-container {
@@ -228,6 +228,10 @@ height: var(--dl-size-size-xsmall);
   }
   .logo-spacer {
     height: 4.5rem;
+    display: inline-block;
+  }
+  .toolbar-spacer {
+    height: 4.2rem;
     display: inline-block;
   }
   .logo-arrow-container {

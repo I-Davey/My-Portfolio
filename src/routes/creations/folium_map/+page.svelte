@@ -268,7 +268,7 @@
   
 
   .spacer {
-    height: 5rem;
+    height: 1rem;
   }
 
   

@@ -9,7 +9,7 @@
 
     <section class="container">
         <div class="container_links">
-            <button class="links disabled">About Me</button>
+            <button class="links " on:click={() => {goto("about")}}>About Me</button>
             <button class="links " on:click={() => {goto("creations")}}>My Creations</button>
             <button class="links disabled">Contact Me</button>
             <button class="links disabled">My Links</button>
@@ -50,6 +50,7 @@
     transition-duration: 0.5s;
     font-size: 1rem;
     font-family: 'Fira Code', monospace;
+    
 
 }
 
