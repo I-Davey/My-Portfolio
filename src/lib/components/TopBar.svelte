@@ -5,7 +5,7 @@ import { ArrowLeft } from "radix-icons-svelte";
 import { page } from "$app/stores";
 import { title } from "$lib/scripts/store.js"
 
-const paths = ["About", "Creations", "Contact", "Links"];
+const paths = ["About", "Projects", "Contact", "Links"];
 const PAGE_TITLE = "Ian Davey"
 /** @type {string} */
 let folderName;

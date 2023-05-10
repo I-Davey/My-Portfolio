@@ -10,7 +10,7 @@
     <section class="container">
         <div class="container_links">
             <button class="links " on:click={() => {goto("about")}}>About Me</button>
-            <button class="links " on:click={() => {goto("creations")}}>My Creations</button>
+            <button class="links " on:click={() => {goto("projects")}}>My Projects</button>
             <button class="links disabled">Contact Me</button>
             <button class="links disabled">My Links</button>
         </div>
