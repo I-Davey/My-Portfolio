@@ -24,12 +24,12 @@
 :global(body) {
 	background-color: #525252;
   margin: 0;
-  height: max-content;
+  height: max-content
 }
 
 .container {
   background-color: #525252;
-  color: #E5E5E5 ;
+  color: #E5E5E5;
   display: flex;
   flex-direction: column;
   align-items: center;
