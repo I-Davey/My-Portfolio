@@ -19,6 +19,8 @@
   /** @type {string} */
   export let image_link;
 
+  export let info
+
 
   let isTouchDevice;
   onMount(() => {
@@ -51,7 +53,7 @@
       />
       <div class="px-8 py-32 relative z-10 w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
         <h2 class="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
-          {description}
+          {info}
         </h2>
         <h1 class="title-font text-lg font-medium text-white mb-3">
           {title}

@@ -17,6 +17,9 @@
         }
     }
 
+    //bind currentwidth to a variable
+    let outerWidth;
+    let outerHeight;
     // call checkMobile on page load and resize
     //if not window
         //wait for window to load with promise
@@ -37,7 +40,9 @@
         
     });
 
+
 </script>
+<svelte:window  bind:outerWidth bind:outerHeight />
 
 
 <div class="all-data"> 
@@ -55,7 +60,7 @@
         </p>
         <a
             href="/contact"
-            class=" inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-slate-300 hover:text-black rounded text-lg">
+            class=" inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400  hover:text-black rounded text-lg">
             Contact Me
         </a>
 
@@ -77,14 +82,67 @@
             fuga dolore.
           </p>
         </div>
+        <p></p>
+        {#if outerWidth > 1000}
         <div class="flex flex-wrap -m-4">
-            <Project title="Folium Map" image_src="/about_pics/folium_map.jpg" image_link="./projects/folium_map" description="test"/>
-            <Project title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#" description="test"/>
-            <Project title="Telegram -> CRM Bot" image_src="/about_pics/telegram_bot.jpg" image_link="#" description="test"/>
-            <Project title="Telegram -> CRM Bot" image_src="/about_pics/telegram_bot.jpg" image_link="#" description="test"/>
-
-
+            <Project title="Folium Map" image_src="/about_pics/folium_map.jpg" image_link="./projects/folium_map" info="Python - PyScript - Folium" description="A Folium map that displays the location of all the jobs in the database, with a marker for each job. The marker is clickable and displays the job details / visual in a popup."/>
+            <Project title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#"  info="Python - Pandas - APIs"  description="A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time."/>
+            <Project title="Telegram -> CRM Bot" image_src="/about_pics/telegram_bot.jpg" image_link="#" info="Python - Telegram - Process Automation" description="A Telegram bot that enables real-time job project and collaboration within a conversation, making it easy for multiple people to participate and enter job details directly into the CRM"/>
+            <Project title="Telegram -> CRM Bot" image_src="/about_pics/telegram_bot.jpg" image_link="#" description="A Telegram bot that enables real-time job project and collaboration within a conversation, making it easy for multiple people to participate and enter job details directly into the CRM"/>
         </div>
+        {:else}
+          <div class="about-container">
+            <div class="content">
+                <div class="row">
+                  <div class="left">
+                    <div class = "image_container">
+                        <ImageCard title="Folium Map" image_src="/about_pics/folium_map.jpg" image_link="./projects/folium_map"></ImageCard>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <div class="textbox">
+                      A Folium map that displays the location of all the jobs in the database, with a marker for each job. The marker is clickable and displays the job details / visual in a popup.
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="spacer"></div>
+
+                <div class="row">
+                    <div class="left">
+                        <div class = "image_container">
+                            <ImageCard title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#"></ImageCard>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="textbox">
+                            <p>A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time.</p>
+                        </div>    
+
+                    </div>
+                </div>
+
+
+                <div class="spacer"></div>
+                
+                <div class="row">
+                  <div class="left">
+                    <div class = "image_container">
+                        <ImageCard title="Telegram -> CRM Bot" image_src="/about_pics/telegram_bot.jpg" image_link="#"></ImageCard>
+                    </div>
+                  </div>
+                  <div class="right">
+                        <div class="textbox" >
+                        <p>A Telegram bot that enables real-time job project and collaboration within a conversation, making it easy for multiple people to participate and enter job details directly into the CRM</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        {/if}
+
       </div>
 </section>
 
@@ -148,25 +206,7 @@
 
     
 <style>
-.containerer {
-    top: 25%;
-    left: 25%;
-    margin: 0;
-    padding: 0;
-    align-items: center;
 
-    width: 70rem;
-}
-
-.container_links{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    gap: 2rem;
-}
 
 .links{
     background-color: #252525;
@@ -219,32 +259,96 @@
     flex-direction: column;
     flex-grow: 1;
   }
-  .header {
-    text-align: center;
-    margin-bottom: 2rem;
-    margin-left: 10rem;
-  }
-
-
-
-.row-box {
-    width: 30rem;
-    text-align: start;
-}
-.center {
-    text-align: center;
-    margin: 0 auto;
-  }
 
 .textbox {
     padding: 1rem;
     background-color: #252525;
     color: white;
     border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
     display: flex;
 }
 
 
+  .about-container {
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    line-height: 1.5;
+    max-width: 90rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
+
+  .content {
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .left {
+    width: 45%;
+    order: 1;
+  }
+
+  .right {
+    width: 45%;
+    order: 2;
+  }
+
+    .image_container {
+        max-width: 80rem;
+    }
+
+.textbox {
+    padding: 1rem;
+    background-color: #252525;
+    color: white;
+}
+
+
+    .textbox {
+        margin-bottom: 2rem;
+        margin-top: 0rem;
+        border-top-left-radius: 0rem;
+        border-top-right-radius: 0rem;
+    }
+  .about-container{
+    padding: 0%;
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    text-align: center;
+    justify-items: center;
+    padding-left: 2%;
+    width: 98%;
+
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    text-align: center; /* add this line */
+    justify-self: center;
+  }
+
+
+
+
+
+  .spacer {
+    height: 4rem;
+  }
 </style>

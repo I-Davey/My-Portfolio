@@ -103,14 +103,12 @@
 
 
 
-@media (max-width: 768px) {
   .card{
     border-radius: 1%;
     box-shadow: none;
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
   }
-}
 
 
 

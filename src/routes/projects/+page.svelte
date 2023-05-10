@@ -66,7 +66,6 @@
     
     <div class="spacer"></div>
 
-    {#if ismobile}
     <div class="row">
         <div class="left">
             <div class = "image_container">
@@ -80,20 +79,7 @@
 
         </div>
     </div>
-    {:else}
-    <div class="row">
-        <div class="left">
-            <div class="textbox">
-                <p>A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time.</p>
-            </div>    
-        </div>
-        <div class="right">
-            <div class = "image_container">
-                <ImageCard title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#" ></ImageCard>
-            </div>
-        </div>
-    </div>
-    {/if}
+
 
     <div class="spacer"></div>
     
