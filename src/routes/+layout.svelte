@@ -3,6 +3,8 @@
     import Transitions from "$lib/components/Transitions.svelte";
     import { page } from '$app/stores' // <-- new
 
+    import "../app.css"
+
 
   </script>
 
@@ -11,7 +13,7 @@
   <TopBar/>
 {/key}
 
-<div class="container">
+<div class="containerer">
   {#key $page}
     <Transitions>
       <slot />
@@ -27,7 +29,7 @@
   height: max-content
 }
 
-.container {
+.containerer {
   background-color: #525252;
   color: #E5E5E5;
   display: flex;
