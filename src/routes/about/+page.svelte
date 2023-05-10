@@ -1,6 +1,7 @@
 <script>
   import { setTitle } from "lib/scripts/store";
     import { onDestroy, onMount } from "svelte";
+    import ImageCard from "lib/components/ImageCard.svelte";
   setTitle("About");
 
   const t1 = "Hi, I'm Ian Davey";
@@ -45,7 +46,11 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
         }   
         
     });
+
 </script>
+
+
+
 
 
 <div class="about-container">
@@ -58,7 +63,9 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
 
     <div class="row">
       <div class="left">
-        <img src="https://via.placeholder.com/400x300.png?text=Folium+Map" alt="Project 1">
+        <div class = "image_container">
+            <ImageCard title="Folium Map" image_src="/about_pics/folium_map.jpg" image_link="#" description="A Folium map that displays the location of all the jobs in the database, with a marker for each job. The marker is clickable and displays the job details / visual in a popup."></ImageCard>
+        </div>
       </div>
       <div class="right">
         <p>Ever since I started my journey in software development, Python has been my go-to programming language. Throughout my career, I have had the opportunity to work on diverse projects, which enabled me to sharpen my skills in Python application development, API integration, process automation, and web scraping. My aptitude for rapid learning and adaptability has empowered me to confront challenges directly and make valuable contributions to my teams.</p>
@@ -70,20 +77,24 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
     {#if ismobile}
     <div class="row">
       <div class="left">
-        <img src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" alt="Project 2">
+        <div class = "image_container">
+            <ImageCard title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#" description="A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time."></ImageCard>
+        </div>
       </div>
     <div class="right">
-        <p>I'm always learning and keeping up-to-date with the latest technologies and trends in the industry. I believe that staying informed and curious is key to being a successful developer, and I'm always looking for new ideas and inspiration to bring to my work.</p>
+        <p>I'm always learning and keeping up-to-date with the latest technologies and trends in the industry. I believe that staying informed and curious is key to being a successful developer, and I'm always looking for new ideas and inspiration to bring to my work. I am also heavily invested in utilizing tools like ChatGPT and GitHub Copilot to enhance my development process, streamline my workflow, and ensure that I deliver high-quality solutions for my projects.</p>
       </div>
     </div>
     {:else}
         <div class="row">
 
     <div class="left">
-        <p>I'm always learning and keeping up-to-date with the latest technologies and trends in the industry. I believe that staying informed and curious is key to being a successful developer, and I'm always looking for new ideas and inspiration to bring to my work.</p>
+    <p>I'm always learning and keeping up-to-date with the latest technologies and trends in the industry. I believe that staying informed and curious is key to being a successful developer, and I'm always looking for new ideas and inspiration to bring to my work. I am also heavily invested in utilizing tools like ChatGPT and GitHub Copilot to enhance my development process, streamline my workflow, and ensure that I deliver high-quality solutions for my projects.</p>
       </div>
     <div class="right">
-        <img src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" alt="Project 2">
+        <div class = "image_container">
+            <ImageCard title="Data Visualisation" image_src="https://via.placeholder.com/400x300.png?text=Data+Visualisation+Gold" image_link="#" description="A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time."></ImageCard>
+        </div>
       </div>
     </div>
     {/if}
@@ -92,7 +103,9 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
     
     <div class="row">
       <div class="left">
-        <img src="https://via.placeholder.com/400x300.png?text=Telegram+Chat+Section" alt="Project 3">
+        <div class = "image_container">
+            <ImageCard title="Telegram -> CRM Bot" image_src="/about_pics/telegram_bot.jpg" image_link="#" description="A Telegram bot that enables real-time job creation and collaboration within a conversation, making it easy for multiple people to participate and enter job details directly into the CRM"></ImageCard>
+        </div>
       </div>
       <div class="right">
         <p>If you're looking for a skilled and passionate Python Developer to join your team, I'd love to hear from you. Please feel free to <a href='mailto:your-email@example.com'>contact me</a> to discuss how I can help your business grow.</p>
@@ -100,6 +113,9 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
     </div>
   </div>
 </div>
+
+
+
 <style>
   .about-container {
     background-color: #525252;
@@ -107,7 +123,7 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
     font-family: Arial, sans-serif;
     padding: 2rem;
     line-height: 1.5;
-    max-width: 800px;
+    max-width: 90rem;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -128,6 +144,7 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
     width: 100%;
   }
 
+  
   .row {
     display: flex;
     flex-direction: row;
@@ -150,16 +167,22 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
     max-width: 100%;
     height: auto;
     margin-right: 1rem;
+    border-radius: 4%;
   }
+
+
 @media (max-width: 768px) {
   .row {
     flex-direction: column;
     text-align: center;
+    justify-items: center;
   }
 
   .left,
   .right {
-    width: 100%;
+    width: 30rem;
+    text-align: center; /* add this line */
+    justify-self: center;
   }
 
   img {
@@ -167,16 +190,8 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
     margin-bottom: 1rem;
   }
 
-  .right p {
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    padding-right: 1rem;
-    font-size: calc(0.75 * var(--img-height)); /* Set font-size to 75% of image height */
-    line-height: var(--img-height); /* Set line-height to image height */
-  }
-}
 
+}
 
 
   .spacer {
