@@ -163,12 +163,9 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
     order: 2;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
-    margin-right: 1rem;
-    border-radius: 4%;
-  }
+    .image_container {
+        max-width: 80rem;
+    }
 
 
 @media (max-width: 768px) {
@@ -176,19 +173,17 @@ const p2 = "When I'm not coding, I love spending time with my cat and going to t
     flex-direction: column;
     text-align: center;
     justify-items: center;
+    
   }
 
   .left,
   .right {
-    width: 30rem;
+    width: 80%;
+    
     text-align: center; /* add this line */
     justify-self: center;
   }
 
-  img {
-    margin: 0 auto;
-    margin-bottom: 1rem;
-  }
 
 
 }

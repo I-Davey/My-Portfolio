@@ -1,6 +1,6 @@
 <script>
+    import { ArrowRight } from "radix-icons-svelte";
     import { onMount } from "svelte";
-
 
 
   /** @type {string} */
@@ -19,7 +19,8 @@
   let isTouchDevice;
   onMount(() => {
     isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-    console.log(window.matchMedia('(hover: none) and (pointer: coarse)'))
+    console.log(window.matchMedia('(hover: none)'))
+    console.log(isTouchDevice)
   });
 
 </script>
@@ -31,43 +32,20 @@
   <div class="card__overlay">
     <div class="card__header">
       <div class="card__header-text">
-        <h3 class="card__title">{title}</h3>            
+        <h3 class="card__title">{title}</h3> 
+          {#if isTouchDevice}
+            <ArrowRight size="3em" />
+          {/if}           
       </div>
     </div>
-    <p class="card__description">{description}</p>
+    <p class="card__description">{description}
+
+    </p>
+
   </div>
 </a>      
 
-
-
-  {#if isTouchDevice}
-    <style>
-      .card__overlay {
-        transform: translateY(0);
-      }
-
-      .card__header {
-        transform: translateY(0);
-      }
-    </style>
-  {:else}
-    <style>
-      .card:hover .card__overlay {
-        transform: translateY(0);
-      }
-
-      .card:hover .card__header {
-        transform: translateY(0);
-      }
-    </style>
-  {/if}
-
 <style>
-
-
-
-
-
 .card {
   position: relative;
   display: block;
@@ -82,8 +60,6 @@
   height: auto;
 }
 
-
-
 .card__overlay {
   position: absolute;
   bottom: 0;
@@ -94,10 +70,6 @@
   opacity: 0.9;
   transform: translateY(100%);
   transition: .2s ease-in-out;
-}
-
-.card:hover .card__overlay {
-  transform: translateY(0);
 }
 
 .card__header {
@@ -111,19 +83,19 @@
   transition: .2s ease-in-out;
 }
 
-
-
-.card:hover .card__header {
-  transform: translateY(0);
-}
-
-
 .card__title {
   font-size: 1em;
   margin: 0 0 .3em;
   color: #ffffff;
 }
 
+.card__header-text {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;  
+}
 
 .card__description {
   padding: 0 2em 2em;
@@ -133,7 +105,21 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-}    
+}
 
+/* Primary input mechanism can hover */
+@media (hover: hover) {
+  .card:hover .card__overlay {
+    transform: translateY(0);
+  }
 
+  .card:hover .card__header {
+    transform: translateY(0);
+  }
+}
+
+/* Primary input mechanism cannot hover or hover not easily */
+@media (hover: none) {
+
+}
 </style>
