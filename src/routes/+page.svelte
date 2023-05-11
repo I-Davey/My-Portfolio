@@ -133,6 +133,7 @@
 		</div>
       <div class="spacer"></div>
   <div class="spacer"></div>
+  </section>
 <section id="contact" class="text-gray-400 bg-zinc-700 body-font">
   <div class="container px-5 py-10 mx-auto text-center lg:px-40">
     <div class="flex flex-col w-full mb-20">
