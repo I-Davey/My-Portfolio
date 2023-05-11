@@ -4,9 +4,6 @@
   
   </script>
   
-<div
-    in:fade={{ easing: cubicOut, duration: 400}}
-
-    >
+<div>
     <slot/>
 </div>

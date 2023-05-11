@@ -1,11 +1,12 @@
 <script >
 import ID_logo_dark from "$lib/assets/ID_logo_grey.png";
 import ID_logo_white from "$lib/assets/ID_logo_white.png";
-import { ArrowLeft } from "radix-icons-svelte";
+import { ArrowLeft, ExternalLink } from "radix-icons-svelte";
 import { page } from "$app/stores";
 import { title } from "$lib/scripts/store.js"
+    import { text } from "svelte/internal";
 
-const paths = ["About", "Projects", "Contact", "Links"];
+const paths = ["Projects","CV"]
 const PAGE_TITLE = "Ian Davey"
 /** @type {string} */
 let folderName;
@@ -72,14 +73,11 @@ function unfocusLogo() {
     <header class="top-bar-navbar-interactive">
       <div class="logo-arrow-container"> 
         <a href="/{subpageName.toLowerCase()}" class="logo-arrow-container" on:click={() => {setPage(subpageName.toLowerCase())}} style="opacity: {isSubpage ? 1 : 0}; pointer-events: {isSubpage ? 'auto' : 'none'};"><ArrowLeft color="white" size={40}/></a>
-        <div class="logo-container" on:mouseenter="{focusLogo}" on:mouseleave="{unfocusLogo}">
-          <!-- TODO: replace with SVG at some point-->
-          <img alt="logo" src="{ID_logo_dark }" class="top-bar-logo" style="opacity: {hoverLogo ? 0 : 1}" />
-          <img alt="logo" src="{ID_logo_white}" class="top-bar-logo" style="opacity: {hoverLogo ? 1 : 0}" />
           <span class="logo-spacer"></span>
-        </div>  
+
       </div>
 
+      <!-- center thew page-title-->
       <div class="page-title">
         {$title}
       </div>
@@ -90,7 +88,8 @@ function unfocusLogo() {
           {#each paths as path}
             <a href="/{path.toLowerCase()}" class="{path.toLowerCase() == folderName ? 'top-bar-navlink-selected': 'top-bar-navlink'}"  on:click={() => {setPage(path.toLowerCase())}}>{path}</a> 
           {/each}
-        </nav>
+          <a class="'top-bar-navlink'" href="/ian-davey-resume.pdf" target="_blank" rel="noopener noreferrer"><ExternalLink text="Resume" color="White"/></a>
+
       </div>
       <div class="top-bar-burger-menu">
         <svg viewBox="0 0 1024 1024" class="top-bar-icon">
