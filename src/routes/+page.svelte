@@ -133,47 +133,45 @@
 		</div>
       <div class="spacer"></div>
   <div class="spacer"></div>
-
-	</section>
-	<section id="contact" class="text-gray-400 bg-zinc-700 body-font">
-		<div class="container px-5 py-10 mx-auto text-center lg:px-40">
-			<div class="flex flex-col w-full mb-20">
-				<h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-                Contact Me
-            </h1>
-				<p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-                Let's get in touch! You can reach me through LinkedIn, GitHub, or email.
-            </p>
-			</div>
-			<div class="flex justify-center">
-				<a class="contact-links w-1/6" href="https://www.linkedin.com/in/ian-davey-64579b136/" target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-            </a>
-				<a class="contact-links w-1/6" href="https://github.com/I-Davey" target="_blank" rel="noopener noreferrer">
-                GitHub
-            </a>
-				<a class="contact-links w-1/6" href="mailto:idaveynz@gmail.com">
-                Email
-            </a>
-			</div>
-			<p class="lg:w-2/3 mx-auto leading-relaxed text-base pt-20 pb-5">
-                Or check out my other stuff:
-          </p>
-			<div class="flex flex-col w-full mb-20">
-				<div class="flex justify-center">
-					<a class="contact-links w-1/4" href="/projects">
-                My Projects
-            </a>
-					<a class="contact-links w-1/4" href="/ian-davey-resume.pdf" target="_blank" rel="noopener noreferrer">
-                My CV
-            </a>
-				</div>
-			</div>
-			
-		</div>
-          <div class="spacer"></div>
+<section id="contact" class="text-gray-400 bg-zinc-700 body-font">
+  <div class="container px-5 py-10 mx-auto text-center lg:px-40">
+    <div class="flex flex-col w-full mb-20">
+      <h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
+        Contact Me
+      </h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+        Let's get in touch! You can reach me through LinkedIn, GitHub, or email.
+      </p>
+    </div>
+    <div class="flex justify-center flex-wrap md:flex-nowrap">
+      <a class="contact-links w-full md:w-1/6 mb-4 md:mb-0" href="https://www.linkedin.com/in/ian-davey-64579b136/" target="_blank" rel="noopener noreferrer">
+        LinkedIn
+      </a>
+      <a class="contact-links w-full md:w-1/6 mb-4 md:mb-0" href="https://github.com/I-Davey" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+      <a class="contact-links w-full md:w-1/6" href="mailto:idaveynz@gmail.com">
+        Email
+      </a>
+    </div>
+    <p class="lg:w-2/3 mx-auto leading-relaxed text-base pt-20 pb-5">
+      Or check out my other stuff:
+    </p>
+    <div class="flex flex-col w-full mb-20">
+      <div class="flex justify-center flex-wrap md:flex-nowrap">
+        <a class="contact-links w-full md:w-1/4 mb-4 md:mb-0" href="/projects">
+          My Projects
+        </a>
+        <a class="contact-links w-full md:w-1/4" href="/ian-davey-resume.pdf" target="_blank" rel="noopener noreferrer">
+          My CV
+        </a>
+      </div>
+    </div>
+  </div>
   <div class="spacer"></div>
-	</section>
+  <div class="spacer"></div>
+</section>
+
 
 	<!-- add spacing to bottom-->
 
