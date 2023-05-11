@@ -6,7 +6,7 @@ import { page } from "$app/stores";
 import { title } from "$lib/scripts/store.js"
     import { text } from "svelte/internal";
 
-const paths = ["Projects","CV"]
+const paths = ["Projects"]
 const PAGE_TITLE = "Ian Davey"
 /** @type {string} */
 let folderName;
@@ -88,7 +88,12 @@ function unfocusLogo() {
           {#each paths as path}
             <a href="/{path.toLowerCase()}" class="{path.toLowerCase() == folderName ? 'top-bar-navlink-selected': 'top-bar-navlink'}"  on:click={() => {setPage(path.toLowerCase())}}>{path}</a> 
           {/each}
-          <a class="'top-bar-navlink'" href="/ian-davey-resume.pdf" target="_blank" rel="noopener noreferrer"><ExternalLink text="Resume" color="White"/></a>
+                      <div class="flex flex-row  justify-center overflow-none">
+                        <a class="top-bar-navlink pr-1" href="/ian-davey-resume.pdf" target="_blank" rel="noopener noreferrer">
+                          CV
+                        </a>
+                        <ExternalLink color="White"/>
+                      </div>
 
       </div>
       <div class="top-bar-burger-menu">

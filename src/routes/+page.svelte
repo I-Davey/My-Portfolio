@@ -6,6 +6,7 @@
     import Skill from "lib/components/Skill.svelte";
     import ProjectMobile from "lib/components/ProjectMobile.svelte";
     import { goto } from "$app/navigation";
+    import { LinkedinLogo } from "radix-icons-svelte";
     setTitle("Ian Davey - Portfolio");
 
     let ismobile = false;
@@ -145,13 +146,13 @@
             </p>
 			</div>
 			<div class="flex justify-center">
-				<a class="contact-links w-1/6" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-                LinkedIn
+				<a class="contact-links w-1/6" href="https://www.linkedin.com/in/ian-davey-64579b136/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
             </a>
-				<a class="contact-links w-1/6" href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+				<a class="contact-links w-1/6" href="https://github.com/I-Davey" target="_blank" rel="noopener noreferrer">
                 GitHub
             </a>
-				<a class="contact-links w-1/6" href="mailto:youremail@example.com">
+				<a class="contact-links w-1/6" href="mailto:idaveynz@gmail.com">
                 Email
             </a>
 			</div>
