@@ -40,11 +40,10 @@
 
 <div class="card">
   <img src="{image_src}" class="card__image" alt="" />
-    <div class="card__header">
+    <div class="card__header  bg-gray-800">
       <div class="card__header-text">
-        <h3 class="card__title">{title}</h3> 
+        <h3 class="title-font text-xl">{title}</h3> 
               <a href="{image_link}" class="logo-arrow-container" on:mouseenter="{focusArrow}" on:mouseleave="{unfocusArrow}"><DoubleArrowRight color="{arrow_color}" size={40}/></a>
-
       </div>
     </div>
 
@@ -56,7 +55,6 @@
   position: relative;
   display: block;
   height: 100%;  
-  border-radius: 4%;
   overflow: hidden;
   text-decoration: none;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
@@ -83,15 +81,10 @@
   padding-left: 2em;
   padding-right: 2em;
 
-  background-color: #252525;
   transition: .2s ease-in-out;
 }
 
-.card__title {
-  font-size: 1em;
-  margin: 0 0 .3em;
-  color: #ffffff;
-}
+
 
 .card__header-text {
   display: flex;
@@ -104,7 +97,6 @@
 
 
   .card{
-    border-radius: 1%;
     box-shadow: none;
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
