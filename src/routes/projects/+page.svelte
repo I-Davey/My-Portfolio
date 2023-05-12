@@ -87,14 +87,14 @@
 
   <div class="content flex justify-center w-full min-w-screen">
     {#if outerWidth > 800}
-      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 w-full ">
         {#each projects as project}
           <div class="md:px-8 px-16 py-8">
             <Project
               title={project.title}
               description={project.description}
               image_src={project.image_src}
-              image_link={"/"}
+              image_link={project.path}
               info={project.info}
             />
           </div>

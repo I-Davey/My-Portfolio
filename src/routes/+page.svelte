@@ -44,36 +44,36 @@
   const projects = [
     {
       title: "Folium Map",
-      description: "A Folium map that displays the location of all the jobs in the database, with a marker for each job. The marker is clickable and displays the job details / visual in a popup.",
+      description:
+        "A Folium map that displays the location of all the jobs in the database, with a marker for each job. The marker is clickable and displays the job details / visual in a popup.",
       image_src: "/about_pics/folium_map.jpg",
       path: "/projects/folium_map",
-      info: "Python - PyScript - Folium"
+      info: "Python - PyScript - Folium",
     },
     {
       title: "Data Visualisation",
-      description: "A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time.",
+      description:
+        "A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time.",
       image_src: "https://placehold.co/600x400?text=Visualisation+Job",
       path: "#",
-      info: "Python - Pandas - APIs"
+      info: "Python - Pandas - APIs",
     },
     {
       title: "Telegram -> CRM Bot",
-      description: "A Telegram bot that enables real-time job project and collaboration within a conversation, making it easy for multiple people to participate and enter job details directly into the CRM",
-      image_src:"/about_pics/telegram_bot.jpg",
+      description:
+        "A Telegram bot that enables real-time job project and collaboration within a conversation, making it easy for multiple people to participate and enter job details directly into the CRM",
+      image_src: "/about_pics/telegram_bot.jpg",
       path: "#",
-      info: "Python - Telegram - Process Automation"
-
+      info: "Python - Telegram - Process Automation",
     },
     {
       title: "Grocery Scraper",
-      description: "A web scraper that scrapes the grocery store website for the latest prices and availability of products, and stores the data in a database.",
-      image_src: "https://placehold.co/600x400?text=Grocery+Scraper",      
+      description:
+        "A web scraper that scrapes the grocery store website for the latest prices and availability of products, and stores the data in a database.",
+      image_src: "https://placehold.co/600x400?text=Grocery+Scraper",
       path: "#",
-      info: "Python - Selenium - Web Scraping"
-
-    }
-
-      
+      info: "Python - Selenium - Web Scraping",
+    },
   ];
 </script>
 
@@ -97,12 +97,22 @@
           As a passionate Python developer with extensive experience, I am eager
           to learn, grow, and add value to companies in the tech industry.
         </p>
+        <div class="space-x-4">
         <a
           href="#contact"
-          class=" inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg"
+          class="inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg"
         >
           Contact Me
         </a>
+        <a
+        href="/ian-davey-resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg"
+      >
+        My CV
+      </a>
+      </div>
       </div>
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6" />
     </div>
@@ -118,7 +128,7 @@
     <div class="container px-5 py-10 mx-auto text-center lg:px-40">
       <div class="flex flex-col w-full mb-20">
         <h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-          Things I've Built
+          Things I've Built <br/> (Work in progress)
         </h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
           Ever since I started my journey in software development, Python has
@@ -140,16 +150,14 @@
               image_src={project.image_src}
               image_link={project.path}
               info={project.info}
-            />       
-
-            
+            />
           {/each}
         </div>
       {:else}
         <div class="about-container">
           <div class="content">
             {#each projects as project}
-            <div class="spacer" />
+              <div class="spacer" />
               <ProjectMobile
                 title={project.title}
                 image_src={project.image_src}

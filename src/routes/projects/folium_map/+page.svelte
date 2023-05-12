@@ -194,11 +194,20 @@
   let content = null;
   onMount(async () => {
 
+  
+
+  });
+
+  let start = false;
+  async function make_start() {
+    start = true;
+
+    await initializePyScript();
+
     window.onMarkerClick = onMarkerClick;
     window.currentMarker = null;
     window.b64data = data_to_bytes();
     window.isloaded = false;
-    await initializePyScript();
     
     while (!window.isloaded) {
       await new Promise(r => setTimeout(r, 100));
@@ -216,11 +225,7 @@
 
     child2.style.height = "80vh";
     child2.style.width = "90vw";
-    
-
-
-
-  });
+  }
 
   setTitle("Folium Map");
 
@@ -229,14 +234,22 @@
 
 
 
-
-
 <div class="spacer">
 </div>
-
+{#if !start}
+<div class="flex justify-center items-center h-screen flex-col">
+  <div class="mb-4">
+    <h1 class="text-center">This is work in progress. Click the button to render the pyscript map.</h1>
+  </div>
+  <button class="inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg" on:click={make_start}>Click Me</button>
+</div>
+{/if}
 <div class="area">
+
   <div class="content" bind:this={content}>
+    {#if start}
     <Pyscript />
+    {/if}
   </div>
 
 </div>
