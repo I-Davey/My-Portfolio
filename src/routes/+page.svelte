@@ -7,7 +7,7 @@
   import ProjectMobile from "lib/components/ProjectMobile.svelte";
   import { goto } from "$app/navigation";
   import { LinkedinLogo } from "radix-icons-svelte";
-  setTitle("Ian Davey - Portfolio");
+  setTitle("Ian Davey");
 
   let ismobile = false;
 
