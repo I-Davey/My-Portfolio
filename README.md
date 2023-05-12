@@ -32,18 +32,18 @@ To run the portfolio website locally, follow these steps:
 
 1. **Clone the repository:** Start by cloning this repository to your local machine using the following command:
    ```
-   git clone https://github.com/your-username/portfolio.git
+   git clone https://github.com/I-Davey/My-Portfolio.git
    ```
 2. **Install dependencies:** Navigate to the project directory and install the necessary dependencies by running the following command:
    ```
-   cd portfolio
+   cd My-Portfolio
    npm install
    ```
 3. **Start the development server:** Launch the development server with hot-reloading using the following command:
    ```
    npm run dev
    ```
-   The website should now be accessible at `http://localhost:5000` in your web browser.
+   The website should now be accessible at `http://localhost:5137` in your web browser.
 
 ## Deployment
 To deploy the portfolio website as a static site on GitHub Pages, follow these steps:
@@ -57,9 +57,3 @@ To deploy the portfolio website as a static site on GitHub Pages, follow these s
 3. **Commit and push:** Commit the changes to your local repository and push them to the remote repository on GitHub.
 4. **Configure GitHub Pages:** In the settings of your GitHub repository, navigate to the **GitHub Pages** section and choose the `main` branch as the source for GitHub Pages. Save the settings.
 5. **Access the deployed website:** After a few moments, your portfolio website should be accessible at `https://your-username.github.io`.
-
-## Contributing
-Contributions to the portfolio website are welcome! If you find any bugs, have suggestions for improvements, or would like to add new features, please feel free to open an issue or submit a pull request.
-
-## License
-The portfolio website is open source and available under the [MIT License](LICENSE). Feel free to modify and adapt it to suit your needs.
