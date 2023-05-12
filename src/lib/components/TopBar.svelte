@@ -134,11 +134,6 @@ function unfocusLogo() {
   background-color: #252525;
 }
 
-.top-bar-logo {
-height: 4.5rem;
-transition: 0.3s;
-}
-
 .top-bar-desktop-menu {
   display: flex;
   flex: 1; /* Add this line */
@@ -180,56 +175,6 @@ height: var(--dl-size-size-xsmall);
 }
 
 
-@media(max-width: 991px) {
-.top-bar-logo {
-  height: 4.5rem;
-}
-}
-@media(max-width: 767px) {
-  .top-bar-navbar-interactive {
-    padding-left: var(--dl-space-space-twounits);
-    padding-right: var(--dl-space-space-twounits);
-  }
-  .top-bar-logo {
-    height: 4.5rem;
-  }
-  .top-bar-desktop-menu {
-    display: none;
-  }
-
-  .top-bar-burger-menu {
-    display: flex;
-  }
-
-
-}
-@media(max-width: 479px) {
-.top-bar-navbar-interactive {
-  padding: 0px;
-}
-.top-bar-logo {
-  height: 4.5rem;
-}
-
-}
-.logo-container {
-    align-self: flex-start;
-    position: relative;
-  }
-
-  .top-bar-logo {
-    position: absolute;
-    height: 4.5rem;
-    transition: opacity 0.3s;
-  }
-  
-  .logo-container {
-    position: relative;
-
-    display: inline-block;
-
-    cursor: not-allowed;
-  }
   .logo-spacer {
     height: 4.5rem;
     display: inline-block;
