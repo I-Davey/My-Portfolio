@@ -1,16 +1,13 @@
 <script>
-    import TopBar from '$lib/components/TopBar.svelte';
-    import Transitions from "$lib/components/Transitions.svelte";
-    import { page } from '$app/stores' // <-- new
+  import TopBar from "$lib/components/TopBar.svelte";
+  import Transitions from "$lib/components/Transitions.svelte";
+  import { page } from "$app/stores"; // <-- new
 
-    import "../app.css"
-
-
-  </script>
-
+  import "../app.css";
+</script>
 
 {#key $page}
-  <TopBar/>
+  <TopBar />
 {/key}
 
 <div class="containerer">
@@ -22,21 +19,20 @@
 </div>
 
 <style>
-:global(html),
-:global(body) {
-	background-color: #525252;
-  margin: 0;
-  height: max-content
-}
+  :global(html),
+  :global(body) {
+    background-color: #525252;
+    margin: 0;
+    height: max-content;
+  }
 
-.containerer {
-  background-color: #525252;
-  color: #E5E5E5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
+  .containerer {
+    background-color: #525252;
+    color: #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 </style>

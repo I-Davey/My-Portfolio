@@ -28,8 +28,6 @@
     console.log(window.matchMedia("(hover: none)"));
     console.log(isTouchDevice);
   });
-
-
 </script>
 
 <a href={image_link} class="sm:w-1/2 p-4 w-full h-full">

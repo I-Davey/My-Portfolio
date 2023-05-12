@@ -30,36 +30,36 @@
   const projects = [
     {
       title: "Folium Map",
-      description: "A Folium map that displays the location of all the jobs in the database, with a marker for each job. The marker is clickable and displays the job details / visual in a popup.",
+      description:
+        "A Folium map that displays the location of all the jobs in the database, with a marker for each job. The marker is clickable and displays the job details / visual in a popup.",
       image_src: "/about_pics/folium_map.jpg",
       path: "/projects/folium_map",
-      info: "Python - PyScript - Folium"
+      info: "Python - PyScript - Folium",
     },
     {
       title: "Data Visualisation",
-      description: "A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time.",
+      description:
+        "A data visualisation that displays the number of jobs created per day, with a line graph that shows the trend over time.",
       image_src: "https://placehold.co/600x400?text=Visualisation+Job",
       path: "#",
-      info: "Python - Pandas - APIs"
+      info: "Python - Pandas - APIs",
     },
     {
       title: "Telegram -> CRM Bot",
-      description: "A Telegram bot that enables real-time job project and collaboration within a conversation, making it easy for multiple people to participate and enter job details directly into the CRM",
-      image_src:"/about_pics/telegram_bot.jpg",
+      description:
+        "A Telegram bot that enables real-time job project and collaboration within a conversation, making it easy for multiple people to participate and enter job details directly into the CRM",
+      image_src: "/about_pics/telegram_bot.jpg",
       path: "#",
-      info: "Python - Telegram - Process Automation"
-
+      info: "Python - Telegram - Process Automation",
     },
     {
       title: "Grocery Scraper",
-      description: "A web scraper that scrapes the grocery store website for the latest prices and availability of products, and stores the data in a database.",
-      image_src: "https://placehold.co/600x400?text=Grocery+Scraper",      
+      description:
+        "A web scraper that scrapes the grocery store website for the latest prices and availability of products, and stores the data in a database.",
+      image_src: "https://placehold.co/600x400?text=Grocery+Scraper",
       path: "#",
-      info: "Python - Selenium - Web Scraping"
-
-    }
-
-      
+      info: "Python - Selenium - Web Scraping",
+    },
   ];
 
   let outerWidth = 0;
@@ -80,14 +80,14 @@
       "
     >
       My Projects
-      <br/>
+      <br />
       (WORK IN PROGRESS)
     </h1>
   </div>
 
   <div class="content flex justify-center w-full min-w-screen">
     {#if outerWidth > 800}
-      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 w-full ">
+      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 w-full">
         {#each projects as project}
           <div class="md:px-8 px-16 py-8">
             <Project

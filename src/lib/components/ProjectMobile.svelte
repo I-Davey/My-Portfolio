@@ -12,12 +12,12 @@
 </script>
 
 <div class="row">
-    <div class="fullbox bg-gray-800 ">
+    <div class="fullbox bg-gray-800">
         <div class="image_container">
             <ImageCard {title} {image_src} {image_link} />
         </div>
     </div>
-    <div class="textbox bg-gray-800  text-sm">
+    <div class="textbox bg-gray-800 text-sm">
         {description}
     </div>
 </div>
@@ -44,5 +44,3 @@
         border-radius: 0.5rem 0.5rem 0 0;
     }
 </style>
-
-

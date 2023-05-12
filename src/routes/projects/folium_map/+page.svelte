@@ -1,27 +1,22 @@
-<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-
 <script>
   import { onMount } from "svelte";
   import axios from "axios";
-  import Pyscript from "./Pyscript.svelte"
+  import Pyscript from "./Pyscript.svelte";
   import { setTitle } from "lib/scripts/store";
-
-  
 
   let isReady = false;
 
   let content_template;
 
-    let cur_lat
-    let cur_lon
-    let type
-    let path
-    let loc_name
-
+  let cur_lat;
+  let cur_lon;
+  let type;
+  let path;
+  let loc_name;
 
   async function initializePyScript() {
     // @ts-ignore
-   await import("https://pyscript.net/latest/pyscript.js");
+    await import("https://pyscript.net/latest/pyscript.js");
   }
   /**
    * Keeps track of the previously clicked marker.
@@ -38,37 +33,29 @@
     const marker = event.sourceTarget;
 
     //get the key latling_list from the dictionary
-    const key = "( " + marker._latlng.lat + ", " + marker._latlng.lng + " )"
-    const row = df[key]
-    const popup_object = marker._popup
-    cur_lat = marker._latlng.lat
-    cur_lon = marker._latlng.lng
-    type = row['type']
-    path = row['path']
-    loc_name = row['loc_name']
+    const key = "( " + marker._latlng.lat + ", " + marker._latlng.lng + " )";
+    const row = df[key];
+    const popup_object = marker._popup;
+    cur_lat = marker._latlng.lat;
+    cur_lon = marker._latlng.lng;
+    type = row["type"];
+    path = row["path"];
+    loc_name = row["loc_name"];
 
     //import the video from path (static/vids/path)
 
-
     //append the video to the popup content
-    
-    
-    const popup_content = popup_object._content
 
-    
+    const popup_content = popup_object._content;
 
-    console.log(event)
+    console.log(event);
     isReady = true;
 
-
-
     //replace the popup content with the new content (ie the content_template)
-    popup_object.setContent(content_template)
-
+    popup_object.setContent(content_template);
   }
 
-
-  function data_to_bytes(){
+  function data_to_bytes() {
     const data = `lat,long,type,path,loc_name,sqm,is_day_job,inbound
                     -37.795089,144.997464,video,1_0.0-3.5.mp4,Timber Fence and Footbridge,25+paint,1,0
                     -37.79505546480804,145.0007712994052,video,1_18.3-24.0.mp4,Merri Creek Perspex,60+paint 40+clean,1,0
@@ -106,27 +93,21 @@
     //turn data into base64 (use buffer)
     const b64_data = btoa(data);
     return b64_data;
-    
-  
-    }
+  }
 
-  
-    /**
+  /**
    * @param {Event} event
-  */
-  function handle_style(event){
-    if (previousMarker) { 
-      scaleMarker(previousMarker, 1/1.2);
+   */
+  function handle_style(event) {
+    if (previousMarker) {
+      scaleMarker(previousMarker, 1 / 1.2);
       previousMarker._icon.style.filter = "";
     }
     const marker = event.sourceTarget;
     scaleMarker(marker, 1.2);
     marker._icon.style.filter = "invert(100%)";
-    
 
     previousMarker = marker;
-
-
   }
 
   /**
@@ -169,7 +150,10 @@
    */
   function scaleStyles(styles, scaleFactor) {
     return Object.fromEntries(
-      Object.entries(styles).map(([key, value]) => [key, Math.round(value * scaleFactor)])
+      Object.entries(styles).map(([key, value]) => [
+        key,
+        Math.round(value * scaleFactor),
+      ])
     );
   }
 
@@ -190,13 +174,8 @@
     icon.style.marginTop = styles.marginTop + "px";
   }
 
-
   let content = null;
-  onMount(async () => {
-
-  
-
-  });
+  onMount(async () => {});
 
   let start = false;
   async function make_start() {
@@ -208,13 +187,13 @@
     window.currentMarker = null;
     window.b64data = data_to_bytes();
     window.isloaded = false;
-    
+
     while (!window.isloaded) {
-      await new Promise(r => setTimeout(r, 100));
+      await new Promise((r) => setTimeout(r, 100));
     }
     //get the pyscript object in the content div
     let child_pys = content.children[1];
-    let child1 = child_pys.children[0].children[0]
+    let child1 = child_pys.children[0].children[0];
 
     //set it to flex
     child1.style.height = "100%";
@@ -228,40 +207,49 @@
   }
 
   setTitle("Folium Map");
-
-
 </script>
 
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
 
-
-<div class="spacer">
-</div>
+<div class="spacer" />
 {#if !start}
-<div class="flex justify-center items-center h-screen flex-col">
-  <div class="mb-4">
-    <h1 class="text-center">This is work in progress. Click the button to render the pyscript map.</h1>
+  <div class="flex justify-center items-center h-screen flex-col">
+    <div class="mb-4">
+      <h1 class="text-center">
+        This is work in progress. Click the button to render the pyscript map.
+      </h1>
+    </div>
+    <button
+      class="inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg"
+      on:click={make_start}>Click Me</button
+    >
   </div>
-  <button class="inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg" on:click={make_start}>Click Me</button>
-</div>
 {/if}
 <div class="area">
-
   <div class="content" bind:this={content}>
     {#if start}
-    <Pyscript />
+      <Pyscript />
     {/if}
   </div>
-
 </div>
-<div class="content_template" bind:this={content_template} style={isReady ? "" : "display: none"}>
-  <h1 style={isReady ? "" : "display: none"}>{loc_name}</h1 >
-    {#if path}
-    <video src="/vids/{path}" class=".video_frame" width ="480" controls preload="metadata">
-      <track kind="captions"/>
-      </video>
-    {/if}
+<div
+  class="content_template"
+  bind:this={content_template}
+  style={isReady ? "" : "display: none"}
+>
+  <h1 style={isReady ? "" : "display: none"}>{loc_name}</h1>
+  {#if path}
+    <video
+      src="/vids/{path}"
+      class=".video_frame"
+      width="480"
+      controls
+      preload="metadata"
+    >
+      <track kind="captions" />
+    </video>
+  {/if}
 </div>
-
 
 <style>
   .area {
@@ -276,14 +264,7 @@
     height: 75%;
   }
 
-
-
-  
-
   .spacer {
     height: 1rem;
   }
-
-  
-
 </style>

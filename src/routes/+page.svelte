@@ -98,21 +98,21 @@
           to learn, grow, and add value to companies in the tech industry.
         </p>
         <div class="space-x-4">
-        <a
-          href="#contact"
-          class="inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg"
-        >
-          Contact Me
-        </a>
-        <a
-        href="/ian-davey-resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg"
-      >
-        My CV
-      </a>
-      </div>
+          <a
+            href="#contact"
+            class="inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg"
+          >
+            Contact Me
+          </a>
+          <a
+            href="/ian-davey-resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex text-black bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-400 hover:text-black rounded text-lg"
+          >
+            My CV
+          </a>
+        </div>
       </div>
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6" />
     </div>
@@ -128,7 +128,7 @@
     <div class="container px-5 py-10 mx-auto text-center lg:px-40">
       <div class="flex flex-col w-full mb-20">
         <h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-          Things I've Built <br/> (Work in progress)
+          Things I've Built <br /> (Work in progress)
         </h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
           Ever since I started my journey in software development, Python has
