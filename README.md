@@ -57,3 +57,27 @@ To deploy the portfolio website as a static site on GitHub Pages, follow these s
 3. **Commit and push:** Commit the changes to your local repository and push them to the remote repository on GitHub.
 4. **Configure GitHub Pages:** In the settings of your GitHub repository, navigate to the **GitHub Pages** section and choose the `main` branch as the source for GitHub Pages. Save the settings.
 5. **Access the deployed website:** After a few moments, your portfolio website should be accessible at `https://your-username.github.io`.
+
+
+## To-Do List
+
+In this section, I outline the upcoming improvements and features for this project. Your contributions and suggestions are always welcome!
+
+1. **Remove dependency of Tailwind CSS**
+   - Refactor the codebase to eliminate the use of Tailwind CSS, replacing it with custom CSS classes or a more lightweight framework.
+
+2. **Remove useless dependencies in general**
+   - Audit the project's dependencies and remove any unnecessary or unused packages to optimize performance and reduce bundle size.
+
+3. **Fix all colors and make everything into store variables**
+   - Consolidate color definitions throughout the project, using centralized variables stored in a single file, making it easier to maintain and update.
+
+4. **Make the project more dynamic**
+   - Introduce dynamic components and modularization, making it easier to extend the project's features and functionality.
+
+5. **Make everything changeable in a file**
+   - Consolidate all configuration options and settings in a single, easily editable file, allowing users to modify the appearance and behavior of the project by editing this file.
+
+6. **Make everything changeable through the website**
+   - Develop a user-friendly web interface that allows users to customize the project's settings and appearance directly from the browser. After customizing, the user should be able to download the updated configuration file to be uploaded along with their portfolio.
+
